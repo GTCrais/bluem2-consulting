@@ -10,7 +10,10 @@
 		<meta property="og:image:height" content="630" />
 		<meta property="fb:app_id" content="{{ $facebookAppId }}" />
 
-		<link rel="icon" type="image/x-icon" href="/img/logos/favicon.png">
+		<link rel="icon" type="image/png" sizes="64x64" href="/img/logos/favicon.png">
+		<link rel="icon" type="image/svg+xml" href="/img/logos/favicon.svg">
+		<link rel="apple-touch-icon" href="/img/logos/apple-touch-icon.png">
+		<meta name="theme-color" content="#FFFFFF">
 
 		@if (config('services.fathom.active'))
 			<script src="https://cdn.usefathom.com/script.js" data-site="" defer></script>

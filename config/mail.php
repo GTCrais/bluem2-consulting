@@ -113,4 +113,18 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Form Recipient
+    |--------------------------------------------------------------------------
+    |
+    | Messages sent through the website's contact form are delivered to this
+    | address. Each message's reply-to is set to the visitor who sent it.
+    |
+    */
+
+    'contact' => [
+        'address' => env('MAIL_CONTACT_ADDRESS', 'info@bluem2.consulting'),
+    ],
+
 ];

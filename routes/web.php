@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\User\PasswordController;
 use App\Http\Controllers\User\ProfileController;
@@ -17,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 			Route::delete('/', [UserController::class, 'destroy'])->name('destroy');
 		});
 });*/
+
+Route::middleware(['throttle:contactMessage'])->post('/contact', [ContactMessageController::class, 'store'])->name('contact-message.store');
 
 Route::get('/{slug?}', [PageController::class, 'show'])->where('slug', '.*')->name('pages.show');

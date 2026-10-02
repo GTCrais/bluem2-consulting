@@ -76,5 +76,9 @@ class RateLimiterService
 		RateLimiter::for('pushNotificationsTokenDestroy', function (Request $request) {
 			return Limit::perMinute(6)->by($request->user()->id . '_push_notifications_token_destroy');
 		});
+
+		RateLimiter::for('contactMessage', function (Request $request) {
+			return Limit::perMinute(3)->by($request->ip() . '_contact_message');
+		});
 	}
 }

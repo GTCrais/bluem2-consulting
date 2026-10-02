@@ -51,6 +51,10 @@
 				if (flash.passwordReset) {
 					toast.success('Your password has been reset.');
 				}
+
+				if (flash.contactMessageSent) {
+					toast.success('Thanks for reaching out! We\'ll get back to you as soon as possible.');
+				}
 			});
 		},
 

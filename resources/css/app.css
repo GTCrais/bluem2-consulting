@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400..800&family=Sora:wght@400..700&display=swap');
 
 @import 'tailwindcss';
 @import 'vue-sonner/style.css';
@@ -10,9 +10,55 @@
 
 @theme {
   --font-inter: "inter", sans-serif;
+  --font-display: "Sora", "inter", sans-serif;
 
   --color-facebook: #1877F2;
   --color-primary-gray-700: #262C41;
+
+  /* BlueM2 brand colors, sampled from the logo mark */
+  --color-brand-cyan: #00AAE3;
+  --color-brand-teal: #0D6587;
+  --color-brand-ink: #19202A;
+  --color-brand-night: #0E131B;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-fade-up: fade-up 0.9s var(--ease-out-expo) both;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-marquee: marquee 45s linear infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Scroll reveal states, toggled by the v-reveal directive */
+[data-reveal='pending'] {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+[data-reveal='visible'] {
+  transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
 }
 
 body {
