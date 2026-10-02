@@ -1,0 +1,78 @@
+<?php
+
+namespace App\Models;
+
+use App\Notifications\ResetPassword;
+use App\Notifications\VerifyEmail;
+use Database\Factories\UserFactory;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable implements MustVerifyEmail
+{
+    /** @use HasFactory<UserFactory> */
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */
+    protected $fillable = [
+        'name', 'email', 'email_verified_at', 'password', 'avatar', 'facebook_id', 'google_id', 'apple_id'
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+	protected $appends = [
+		'avatar_url', 'relative_avatar_path'
+	];
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+	public function avatarUrl(): Attribute
+	{
+		return Attribute::make(
+			get: fn () => $this->avatar ? \Storage::url('avatars/' . $this->avatar) : '/img/misc/default_avatar.svg'
+		);
+	}
+
+	public function relativeAvatarPath(): Attribute
+	{
+		return Attribute::make(
+			get: fn () => $this->avatar ? 'storage/avatars/' . $this->avatar : null
+		);
+	}
+
+	public function sendEmailVerificationNotification()
+	{
+		$this->notify(new VerifyEmail(request()->mobileApp()));
+	}
+
+	public function sendPasswordResetNotification($token)
+	{
+		$this->notify(new ResetPassword($token, request()->mobileApp()));
+	}
+}
