@@ -105,9 +105,10 @@
 										<span class="absolute inline-flex size-full rounded-full bg-brand-cyan opacity-75 motion-safe:animate-ping"></span>
 										<span class="relative inline-flex size-1.5 rounded-full bg-brand-cyan"></span>
 									</span>
-									Zagreb, Croatia
+									From idea to launch
 								</span>
-								Web development agency
+								<span class="sm:hidden">Web agency</span>
+								<span class="hidden sm:inline">Web development agency</span>
 							</p>
 
 							<h1 id="hero-title" class="mt-7 font-display text-[2.6rem] leading-[1.05] font-semibold tracking-[-0.045em] text-brand-ink motion-safe:animate-fade-up motion-safe:[animation-delay:80ms] sm:text-6xl lg:text-[4.1rem] xl:text-7xl">
@@ -190,7 +191,7 @@
 											</div>
 
 											<div class="relative overflow-hidden rounded-xl bg-linear-to-br from-brand-teal to-brand-ink p-5 sm:p-6">
-												<div aria-hidden="true" class="absolute -top-6 right-6 bottom-[-1.5rem] flex w-28 sm:w-36">
+												<div aria-hidden="true" class="absolute -top-6 right-6 bottom-[-1.5rem] flex w-28 opacity-40 sm:w-36">
 													<span class="flex-1 -skew-x-[29deg] bg-brand-cyan"></span>
 													<span class="flex-1 -skew-x-[29deg] bg-brand-teal"></span>
 													<span class="flex-1 -skew-x-[29deg] bg-brand-ink"></span>
@@ -205,13 +206,16 @@
 											</div>
 
 											<div class="grid grid-cols-3 gap-3">
-												<div v-for="product in heroProducts" :key="'hero-product-' + product.price" class="rounded-xl p-2 ring-1 ring-slate-900/5">
-													<div class="flex aspect-[4/3] items-center justify-center rounded-lg bg-linear-to-br" :class="product.tint">
+												<div v-for="(product, productIndex) in sampleProducts" :key="'hero-product-' + productIndex" class="rounded-xl p-2 ring-1 ring-slate-900/5">
+													<div class="relative flex aspect-[4/3] items-center justify-center rounded-lg bg-linear-to-br" :class="product.tint">
 														<span class="bg-white/85 shadow-sm" :class="product.shape"></span>
+														<span v-if="product.isNew" class="absolute top-1.5 left-1.5 rounded-full bg-brand-cyan px-1.5 py-px text-[8px] font-bold tracking-wider text-white uppercase">New</span>
 													</div>
 													<div class="mt-2.5 h-1.5 w-3/4 rounded-full bg-slate-200"></div>
 													<div class="mt-2 flex items-center justify-between">
-														<p class="text-[11px] font-semibold text-brand-ink">{{ product.price }}</p>
+														<div class="flex items-center gap-1">
+															<span v-for="swatch in product.swatches" :key="swatch" class="size-2.5 rounded-full ring-1 ring-slate-900/10" :class="swatch"></span>
+														</div>
 														<span class="flex size-5 items-center justify-center rounded-md bg-brand-ink text-white">
 															<plus class="size-3" :stroke-width="2.5"></plus>
 														</span>
@@ -228,8 +232,8 @@
 									</span>
 
 									<div>
-										<p class="text-sm font-semibold text-brand-ink">New order #1048</p>
-										<p class="text-xs text-slate-500">€249.00 &middot; just now</p>
+										<p class="text-sm font-semibold text-brand-ink">New order received</p>
+										<p class="text-xs text-slate-500">Confirmation sent &middot; just now</p>
 									</div>
 								</div>
 
@@ -250,13 +254,13 @@
 			</section>
 
 			<section class="border-y border-slate-900/[0.06] bg-slate-50/70 py-8" aria-label="Technologies we work with">
-				<container class="flex flex-col items-center gap-6 lg:flex-row lg:gap-12">
+				<container class="flex flex-col items-center gap-6 lg:flex-row lg:gap-8">
 					<p class="shrink-0 text-center text-xs font-semibold tracking-[0.16em] text-balance text-slate-500 uppercase lg:text-left">
 						Built with a modern,<br class="hidden lg:block">
 						battle-tested stack
 					</p>
 
-					<div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+					<div class="relative w-full overflow-hidden pl-[5%] [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
 						<div class="flex w-max motion-safe:animate-marquee hover:[animation-play-state:paused]">
 							<ul v-for="copy in 2" :key="'technologies-' + copy" class="flex shrink-0 items-center" :aria-hidden="copy === 2 ? 'true' : null">
 								<li
@@ -276,7 +280,7 @@
 			<section id="services" class="scroll-mt-10 py-24 sm:py-32" aria-labelledby="services-title">
 				<container>
 					<div v-reveal class="mx-auto max-w-3xl text-center">
-						<p class="inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.16em] text-brand-teal uppercase">
+						<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-teal uppercase">
 							<app-logo mark-only class="h-2.5"></app-logo>
 							What we do
 						</p>
@@ -309,23 +313,25 @@
 									<template v-if="service.visual === 'webshop'">
 										<div class="absolute inset-x-5 top-5 grid grid-cols-3 gap-2.5">
 											<div
-												v-for="(product, productIndex) in webshopProducts"
+												v-for="(product, productIndex) in sampleProducts"
 												:key="'webshop-product-' + productIndex"
 												class="rounded-xl bg-white p-1.5 shadow-sm ring-1 ring-slate-900/5 transition-transform duration-500 group-hover:-translate-y-1"
-												:class="product.delay"
+												:style="{ transitionDelay: (productIndex * 75) + 'ms' }"
 											>
 												<div class="flex aspect-[4/3] items-center justify-center rounded-lg bg-linear-to-br" :class="product.tint">
 													<span class="bg-white/85 shadow-sm" :class="product.shape"></span>
 												</div>
 												<div class="mt-2 h-1.5 w-3/4 rounded-full bg-slate-200"></div>
-												<p class="mt-1.5 mb-0.5 text-[10px] font-semibold text-brand-ink">{{ product.price }}</p>
+												<div class="mt-1.5 mb-0.5 flex gap-1">
+													<span v-for="swatch in product.swatches" :key="swatch" class="size-2 rounded-full ring-1 ring-slate-900/10" :class="swatch"></span>
+												</div>
 											</div>
 										</div>
 
 										<div class="absolute inset-x-5 bottom-5 flex items-center justify-between rounded-xl bg-brand-ink py-2.5 pr-2.5 pl-3.5 text-white shadow-lg shadow-brand-ink/20">
 											<span class="flex items-center gap-2 text-[11px] font-medium">
 												<shopping-cart class="size-3.5 text-brand-cyan"></shopping-cart>
-												3 items &middot; €197.00
+												3 items in your cart
 											</span>
 											<span class="rounded-lg bg-brand-cyan px-2.5 py-1.5 text-[10px] font-semibold">Checkout</span>
 										</div>
@@ -418,7 +424,7 @@
 				<container>
 					<div class="grid gap-14 lg:grid-cols-12 lg:gap-12">
 						<div v-reveal class="lg:col-span-5 lg:pt-4">
-							<p class="inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.16em] text-brand-teal uppercase">
+							<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-teal uppercase">
 								<app-logo mark-only class="h-2.5"></app-logo>
 								The solution for your business
 							</p>
@@ -465,7 +471,7 @@
 
 				<container>
 					<div v-reveal class="mx-auto max-w-3xl text-center">
-						<p class="inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.16em] text-brand-cyan uppercase">
+						<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-cyan uppercase">
 							<app-logo mark-only class="h-2.5"></app-logo>
 							How we do business
 						</p>
@@ -500,7 +506,7 @@
 			<section class="relative overflow-hidden py-24 sm:py-36" aria-labelledby="offer-title">
 				<container>
 					<div v-reveal class="mx-auto max-w-5xl text-center">
-						<h2 id="offer-title" class="inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.16em] text-brand-teal uppercase">
+						<h2 id="offer-title" class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-teal uppercase">
 							<app-logo mark-only class="h-2.5"></app-logo>
 							What we offer
 						</h2>
@@ -529,7 +535,7 @@
 									<app-logo mark-only class="absolute -right-10 -bottom-6 h-44 opacity-[0.07]"></app-logo>
 								</div>
 
-								<p class="inline-flex items-center gap-2.5 text-[13px] font-semibold tracking-[0.16em] text-brand-cyan uppercase">
+								<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-cyan uppercase">
 									<app-logo mark-only class="h-2.5"></app-logo>
 									Get in touch
 								</p>
@@ -607,7 +613,7 @@
 
 										<div class="flex flex-wrap gap-2">
 											<label v-for="projectType in projectTypes" :key="projectType" class="cursor-pointer">
-												<input v-model="form.project_type" type="radio" name="project_type" :value="projectType" class="peer sr-only">
+												<input v-model="form.project_type" type="radio" name="project_type" :value="projectType" class="peer sr-only" @click="deselectProjectType(projectType)" @keydown.space="deselectProjectTypeWithKeyboard($event, projectType)">
 												<span class="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-slate-600 ring-1 ring-slate-200 transition-colors ring-inset peer-checked:bg-brand-ink peer-checked:text-white peer-checked:ring-brand-ink peer-checked:hover:text-white peer-checked:hover:ring-brand-ink peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-cyan hover:text-brand-ink hover:ring-slate-300">
 													{{ projectType }}
 												</span>
@@ -626,7 +632,8 @@
 											rows="5"
 											placeholder="Tell us about your project, your goals and your timeline..."
 											:aria-invalid="form.errors.message ? 'true' : null"
-											class="resize-y"
+											ref="messageField"
+											class="max-h-68 resize-none overflow-y-auto"
 											:class="fieldClasses(form.errors.message)"
 										></textarea>
 
@@ -651,7 +658,7 @@
 										>
 											<loader-circle v-if="form.processing" class="size-4 animate-spin"></loader-circle>
 											<check v-else-if="form.recentlySuccessful" class="size-4" :stroke-width="2.5"></check>
-											<send v-else class="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></send>
+											<send v-else class="size-4 transition-transform duration-200 will-change-transform group-hover:rotate-45"></send>
 											{{ submitButtonLabel }}
 										</button>
 									</div>
@@ -821,10 +828,25 @@
 					'Long-term support'
 				],
 
-				heroProducts: [
-					{ price: '€49.00', tint: 'from-sky-100 to-cyan-50', shape: 'aspect-square w-2/5 rounded-full' },
-					{ price: '€89.00', tint: 'from-slate-200 to-slate-100', shape: 'aspect-square w-1/3 rotate-12 rounded-lg' },
-					{ price: '€59.00', tint: 'from-brand-cyan/25 to-brand-teal/10', shape: 'h-1/4 w-1/2 rounded-full' }
+				sampleProducts: [
+					{
+						tint: 'from-sky-100 to-cyan-50',
+						shape: 'aspect-square w-2/5 rounded-full',
+						swatches: ['bg-brand-cyan', 'bg-sky-200', 'bg-white'],
+						isNew: true
+					},
+					{
+						tint: 'from-slate-200 to-slate-100',
+						shape: 'aspect-square w-1/3 rotate-12 rounded-lg',
+						swatches: ['bg-brand-ink', 'bg-slate-400', 'bg-slate-200'],
+						isNew: false
+					},
+					{
+						tint: 'from-brand-cyan/25 to-brand-teal/10',
+						shape: 'h-1/4 w-1/2 rounded-full',
+						swatches: ['bg-brand-teal', 'bg-brand-cyan', 'bg-sky-100'],
+						isNew: false
+					}
 				],
 
 				technologies: [
@@ -857,12 +879,6 @@
 						description: 'Modern, responsive websites that make a great first impression, with a content management system tailored to your needs so you can keep everything up to date.',
 						features: ['Tailored CMS', 'Optimized for every device', 'Built for speed & SEO']
 					}
-				],
-
-				webshopProducts: [
-					{ price: '€49.00', tint: 'from-sky-100 to-cyan-50', shape: 'size-5 rounded-full', delay: 'delay-0' },
-					{ price: '€89.00', tint: 'from-slate-200 to-slate-100', shape: 'size-4 rotate-12 rounded-md', delay: 'delay-75' },
-					{ price: '€59.00', tint: 'from-brand-cyan/25 to-brand-teal/10', shape: 'h-2.5 w-7 rounded-full', delay: 'delay-150' }
 				],
 
 				automationSteps: [
@@ -947,6 +963,12 @@
 			}
 		},
 
+		watch: {
+			'form.message'() {
+				this.$nextTick(() => this.fitMessageFieldToContent());
+			}
+		},
+
 		mounted() {
 			window.addEventListener('scroll', this.handleScroll, { passive: true });
 			window.addEventListener('keydown', this.handleKeydown);
@@ -1024,6 +1046,41 @@
 
 				card.style.setProperty('--pointer-x', (event.clientX - bounds.left) + 'px');
 				card.style.setProperty('--pointer-y', (event.clientY - bounds.top) + 'px');
+			},
+
+			/**
+			 * Clicking the selected project type again clears it, since the field is optional.
+			 */
+			deselectProjectType(projectType) {
+				if (this.form.project_type === projectType) {
+					this.form.project_type = null;
+				}
+			},
+
+			/**
+			 * Browsers fire no click when space is pressed on a checked radio, so this gives keyboard
+			 * users the same toggle. Cancelling the keydown stops the keyup from selecting it again.
+			 */
+			deselectProjectTypeWithKeyboard(event, projectType) {
+				if (this.form.project_type === projectType) {
+					event.preventDefault();
+					this.form.project_type = null;
+				}
+			},
+
+			/**
+			 * Grows the message field with its content. The rows attribute sets the minimum
+			 * height and max-h-68 caps it, after which the field scrolls.
+			 */
+			fitMessageFieldToContent() {
+				const messageField = this.$refs.messageField;
+
+				if (!messageField) {
+					return;
+				}
+
+				messageField.style.height = 'auto';
+				messageField.style.height = messageField.scrollHeight + 'px';
 			},
 
 			fieldClasses(error) {
