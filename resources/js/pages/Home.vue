@@ -89,7 +89,7 @@
 		</header>
 
 		<main id="main-content">
-			<section id="hero" class="relative isolate overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-36" aria-labelledby="hero-title">
+			<section id="hero" class="relative isolate overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-36" aria-labelledby="hero-title">
 				<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
 					<div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.045)_1px,transparent_1px)] bg-size-[64px_64px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_0%,black_45%,transparent_100%)]"></div>
 					<div class="absolute -top-48 right-[-12%] size-[44rem] rounded-full bg-brand-cyan/20 blur-[130px]"></div>
@@ -277,12 +277,12 @@
 				</container>
 			</section>
 
-			<section id="services" class="scroll-mt-10 py-24 sm:py-32" aria-labelledby="services-title">
+			<section id="services" class="scroll-mt-10 py-16 sm:py-32" aria-labelledby="services-title">
 				<container>
 					<div v-reveal class="mx-auto max-w-3xl text-center">
-						<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-teal uppercase">
-							<app-logo mark-only class="h-2.5"></app-logo>
-							What we do
+						<p class="inline-block text-[13px] leading-5 font-semibold tracking-[0.16em] text-balance text-brand-teal uppercase">
+							<app-logo mark-only class="mt-[5px] mr-2.5 inline-block h-2.5 align-top"></app-logo>
+							<span>What we do</span>
 						</p>
 
 						<h2 id="services-title" class="mt-5 font-display text-4xl leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-brand-ink sm:text-5xl">
@@ -420,17 +420,17 @@
 				</container>
 			</section>
 
-			<section id="why-us" class="scroll-mt-10 bg-slate-50 py-24 sm:py-32" aria-labelledby="why-us-title">
+			<section id="why-us" class="scroll-mt-10 bg-slate-50 py-16 sm:py-32" aria-labelledby="why-us-title">
 				<container>
 					<div class="grid gap-14 lg:grid-cols-12 lg:gap-12">
-						<div v-reveal class="lg:col-span-5 lg:pt-4">
-							<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-teal uppercase">
-								<app-logo mark-only class="h-2.5"></app-logo>
-								The solution for your business
+						<div v-reveal class="mx-auto max-w-3xl text-center lg:col-span-5 lg:mx-0 lg:max-w-none lg:pt-4 lg:text-left">
+							<p class="inline-block text-[13px] leading-5 font-semibold tracking-[0.16em] text-balance text-brand-teal uppercase">
+								<app-logo mark-only class="mt-[5px] mr-2.5 inline-block h-2.5 align-top"></app-logo>
+								<span>The solution for your business</span>
 							</p>
 
 							<h2 id="why-us-title" class="mt-5 font-display text-4xl leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-brand-ink sm:text-5xl">
-								Bring us an idea. We'll deliver the solution.
+								<span class="block">Bring us an idea.</span> We'll deliver the solution.
 							</h2>
 
 							<p class="mt-6 text-lg leading-relaxed text-slate-600">
@@ -463,7 +463,7 @@
 				</container>
 			</section>
 
-			<section id="process" class="relative isolate scroll-mt-10 overflow-hidden bg-brand-night py-24 text-slate-400 sm:py-32" aria-labelledby="process-title">
+			<section id="process" class="relative isolate scroll-mt-10 overflow-hidden bg-brand-night py-16 text-slate-400 sm:py-32" aria-labelledby="process-title">
 				<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
 					<div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[64px_64px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]"></div>
 					<div class="absolute -top-56 left-1/2 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full bg-brand-cyan/15 blur-[130px]"></div>
@@ -471,9 +471,9 @@
 
 				<container>
 					<div v-reveal class="mx-auto max-w-3xl text-center">
-						<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-cyan uppercase">
-							<app-logo mark-only class="h-2.5"></app-logo>
-							How we do business
+						<p class="inline-block text-[13px] leading-5 font-semibold tracking-[0.16em] text-balance text-brand-cyan uppercase">
+							<app-logo mark-only class="mt-[5px] mr-2.5 inline-block h-2.5 align-top"></app-logo>
+							<span>How we do business</span>
 						</p>
 
 						<h2 id="process-title" class="mt-5 font-display text-4xl leading-[1.1] font-semibold tracking-[-0.035em] text-balance text-white sm:text-5xl">
@@ -485,7 +485,7 @@
 						</p>
 					</div>
 
-					<div class="relative mt-20">
+					<div class="relative mt-16 sm:mt-20">
 						<div aria-hidden="true" class="absolute top-7 right-0 left-12 hidden h-px bg-linear-to-r from-brand-cyan/70 via-white/15 to-transparent lg:block"></div>
 
 						<ol class="relative grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
@@ -503,12 +503,12 @@
 				</container>
 			</section>
 
-			<section class="relative overflow-hidden py-24 sm:py-36" aria-labelledby="offer-title">
+			<section class="relative overflow-hidden py-16 sm:py-36" aria-labelledby="offer-title">
 				<container>
 					<div v-reveal class="mx-auto max-w-5xl text-center">
-						<h2 id="offer-title" class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-teal uppercase">
-							<app-logo mark-only class="h-2.5"></app-logo>
-							What we offer
+						<h2 id="offer-title" class="inline-block text-[13px] leading-5 font-semibold tracking-[0.16em] text-balance text-brand-teal uppercase">
+							<app-logo mark-only class="mt-[5px] mr-2.5 inline-block h-2.5 align-top"></app-logo>
+							<span>What we offer</span>
 						</h2>
 
 						<p class="mt-8 font-display text-[1.85rem] leading-[1.3] font-medium tracking-[-0.03em] text-slate-400 sm:text-4xl sm:leading-[1.25] lg:text-[3.1rem] lg:leading-[1.2]">
@@ -525,7 +525,7 @@
 				</container>
 			</section>
 
-			<section id="contact" class="scroll-mt-10 bg-slate-50 py-24 sm:py-32" aria-labelledby="contact-title">
+			<section id="contact" class="scroll-mt-10 bg-slate-50 py-16 sm:py-32" aria-labelledby="contact-title">
 				<container>
 					<div v-reveal>
 						<div class="grid overflow-hidden rounded-[2rem] bg-white shadow-2xl ring-1 shadow-brand-ink/[0.06] ring-slate-900/[0.06] lg:grid-cols-5">
@@ -535,9 +535,9 @@
 									<app-logo mark-only class="absolute -right-10 -bottom-6 h-44 opacity-[0.07]"></app-logo>
 								</div>
 
-								<p class="inline-flex items-center gap-2.5 text-[13px] leading-5 font-semibold tracking-[0.16em] text-brand-cyan uppercase">
-									<app-logo mark-only class="h-2.5"></app-logo>
-									Get in touch
+								<p class="inline-block text-[13px] leading-5 font-semibold tracking-[0.16em] text-balance text-brand-cyan uppercase">
+									<app-logo mark-only class="mt-[5px] mr-2.5 inline-block h-2.5 align-top"></app-logo>
+									<span>Get in touch</span>
 								</p>
 
 								<h2 id="contact-title" class="mt-5 font-display text-3xl leading-[1.15] font-semibold tracking-[-0.035em] text-white sm:text-4xl">
