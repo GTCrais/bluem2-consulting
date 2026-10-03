@@ -16,7 +16,7 @@
 		<meta name="theme-color" content="#FFFFFF">
 
 		@if (config('services.fathom.active'))
-			<script src="https://cdn.usefathom.com/script.js" data-site="" defer></script>
+			<script src="https://cdn.usefathom.com/script.js" data-site="BFZNLBXY" defer></script>
 		@endif
 
 		@vite(['resources/css/app.css', 'resources/js/app.js'])
