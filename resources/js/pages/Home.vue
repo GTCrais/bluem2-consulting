@@ -92,8 +92,8 @@
 			<section id="hero" class="relative isolate overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-44 lg:pb-36" aria-labelledby="hero-title">
 				<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
 					<div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(15,23,42,0.045)_1px,transparent_1px),linear-gradient(to_bottom,rgba(15,23,42,0.045)_1px,transparent_1px)] bg-size-[64px_64px] [mask-image:radial-gradient(ellipse_75%_65%_at_50%_0%,black_45%,transparent_100%)]"></div>
-					<div class="absolute -top-48 right-[-12%] size-[44rem] rounded-full bg-brand-cyan/20 blur-[130px]"></div>
-					<div class="absolute top-1/3 -left-48 size-[32rem] rounded-full bg-brand-teal/10 blur-[120px]"></div>
+					<div class="absolute -top-[28.25rem] right-[calc(-12%_-_16.25rem)] size-[76.5rem] bg-radial from-brand-cyan/20 via-brand-cyan/10 via-35% to-transparent to-70%"></div>
+					<div class="absolute top-[calc(100%/3_-_15rem)] -left-[27rem] size-[62rem] bg-radial from-brand-teal/10 via-brand-teal/5 via-35% to-transparent to-70%"></div>
 				</div>
 
 				<container>
@@ -151,9 +151,9 @@
 
 						<div aria-hidden="true" class="relative lg:col-span-6 motion-safe:animate-fade-up motion-safe:[animation-delay:200ms]">
 							<div class="relative mx-auto w-full max-w-[34rem] lg:mr-0 lg:ml-auto">
-								<div aria-hidden="true" class="absolute -inset-x-8 top-8 -bottom-8 rounded-[3rem] bg-linear-to-tr from-brand-cyan/40 via-brand-teal/25 to-brand-cyan/10 blur-3xl"></div>
+								<div aria-hidden="true" class="absolute -inset-x-[10rem] -top-[6rem] -bottom-[10rem] bg-linear-to-tr from-brand-cyan/40 via-brand-teal/25 to-brand-cyan/10 [mask-image:linear-gradient(to_right,transparent,black_16rem,black_calc(100%_-_16rem),transparent),linear-gradient(to_bottom,transparent,black_16rem,black_calc(100%_-_16rem),transparent)] [mask-composite:intersect]"></div>
 
-								<div class="relative rounded-[1.4rem] bg-white/70 p-1.5 shadow-2xl shadow-brand-ink/20 ring-1 ring-slate-900/10 backdrop-blur">
+								<div class="relative rounded-[1.4rem] bg-white/80 p-1.5 shadow-2xl shadow-brand-ink/20 ring-1 ring-slate-900/10">
 									<div class="overflow-hidden rounded-2xl bg-white ring-1 ring-slate-900/5">
 										<div class="flex items-center gap-3 border-b border-slate-100 bg-slate-50/80 px-4 py-3">
 											<div class="flex gap-1.5">
@@ -226,7 +226,7 @@
 									</div>
 								</div>
 
-								<div class="absolute top-[38%] -left-3 flex items-center gap-3 rounded-2xl bg-white/95 p-3 pr-5 shadow-xl shadow-brand-ink/10 ring-1 ring-slate-900/5 backdrop-blur motion-safe:animate-float sm:-left-12">
+								<div class="absolute top-[38%] -left-3 flex items-center gap-3 rounded-2xl bg-white/95 p-3 pr-5 shadow-xl shadow-brand-ink/10 ring-1 ring-slate-900/5 motion-safe:animate-float sm:-left-12">
 									<span class="flex size-10 items-center justify-center rounded-xl bg-brand-cyan/10 text-brand-cyan">
 										<shopping-bag class="size-5"></shopping-bag>
 									</span>
@@ -237,7 +237,7 @@
 									</div>
 								</div>
 
-								<div class="absolute -right-3 -bottom-7 flex items-center gap-3 rounded-2xl bg-white/95 p-3 pr-5 shadow-xl shadow-brand-ink/10 ring-1 ring-slate-900/5 backdrop-blur motion-safe:animate-float motion-safe:[animation-delay:-3.5s] sm:-right-8">
+								<div class="absolute -right-3 -bottom-7 flex items-center gap-3 rounded-2xl bg-white/95 p-3 pr-5 shadow-xl shadow-brand-ink/10 ring-1 ring-slate-900/5 motion-safe:animate-float motion-safe:[animation-delay:-3.5s] sm:-right-8">
 									<span class="flex size-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600">
 										<database-backup class="size-5"></database-backup>
 									</span>
@@ -466,7 +466,7 @@
 			<section id="process" class="relative isolate scroll-mt-10 overflow-hidden bg-brand-night py-16 text-slate-400 sm:py-32" aria-labelledby="process-title">
 				<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
 					<div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-size-[64px_64px] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)]"></div>
-					<div class="absolute -top-56 left-1/2 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full bg-brand-cyan/15 blur-[130px]"></div>
+					<div class="absolute -top-[30.25rem] left-1/2 h-[60.5rem] w-[88.5rem] -translate-x-1/2 bg-radial from-brand-cyan/15 via-brand-cyan/8 via-35% to-transparent to-70%"></div>
 				</div>
 
 				<container>
@@ -531,7 +531,7 @@
 						<div class="grid overflow-hidden rounded-[2rem] bg-white shadow-2xl ring-1 shadow-brand-ink/[0.06] ring-slate-900/[0.06] lg:grid-cols-5">
 							<div class="relative isolate overflow-hidden bg-brand-night px-6 py-12 sm:px-12 sm:py-14 lg:col-span-2">
 								<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-									<div class="absolute -top-28 -right-28 size-80 rounded-full bg-brand-cyan/25 blur-[90px]"></div>
+									<div class="absolute -top-[18.25rem] -right-[18.25rem] size-[42.5rem] bg-radial from-brand-cyan/25 via-brand-cyan/12 via-35% to-transparent to-70%"></div>
 									<app-logo mark-only class="absolute -right-10 -bottom-6 h-44 opacity-[0.07]"></app-logo>
 								</div>
 
@@ -672,7 +672,7 @@
 
 		<footer class="relative isolate overflow-hidden bg-brand-night text-slate-400">
 			<div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
-				<div class="absolute -bottom-40 left-1/2 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-brand-teal/20 blur-[130px]"></div>
+				<div class="absolute -bottom-[26.25rem] left-1/2 h-[52.5rem] w-[80.5rem] -translate-x-1/2 bg-radial from-brand-teal/20 via-brand-teal/10 via-35% to-transparent to-70%"></div>
 			</div>
 
 			<container class="pt-16 pb-10 sm:pt-20">
