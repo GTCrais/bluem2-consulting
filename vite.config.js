@@ -17,7 +17,11 @@ export default defineConfig({
 			ssr: 'resources/js/app.js',
 			refresh: true,
 		}),
-		inertia(),
+		inertia({
+			ssr: {
+				port: 13715,
+			},
+		}),
 		vue({
 			template: {
 				transformAssetUrls: {
